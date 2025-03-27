@@ -1,14 +1,12 @@
 import './App.css';
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Maquinados from './pages/Maquinados';
-import Fundicion from './pages/Fundicion';
-import OsgRoyco from './pages/OsgRoyco';
-import PlasticosIngenieria from './pages/PlasticosIngenieria';
-import Aceros from './pages/Aceros';
-import SobreNosotros from './pages/SobreNosotros';
-import Busqueda from './pages/Busqueda';
+import ProductLanding from './components/ProductLanding';
+import fondoosg from './assets/machuelosVarios.jpeg'
+import fondomaquinados from './assets/fondo-maquinados.png'
+import fondofundicion from './assets/fondo-fundicion.jpg'
+import fondoplastico from './assets/fondo-plasticos.jpeg'
+
 
 class App extends React.Component { 
   componentDidMount() {
@@ -16,22 +14,14 @@ class App extends React.Component {
   } 
   render() { 
     return ( 
-      <Router>
       <div className="App">
-        <div className='b'>
-          <Navbar />
-        </div>
-        <Routes>
-          <Route path="/" element={<Maquinados />} />
-          <Route path="/fundicion" element={<Fundicion />} />
-          <Route path="/osg-royco" element={<OsgRoyco />} />
-          <Route path="/plasticos-ingenieria" element={<PlasticosIngenieria />} />
-          <Route path="/aceros" element={<Aceros />} />
-          <Route path="/sobre-nosotros" element={<SobreNosotros />} />
-          <Route path="/busqueda" element={<Busqueda />} />
-        </Routes>
+        <Navbar></Navbar>
+        <ProductLanding bgImage={fondoosg} title={"OSG Royco"} subtitle={"Somos distribuidores autorizados"}></ProductLanding>
+        <ProductLanding bgImage={fondomaquinados} title={"Maquinados"} subtitle={"La mejor calidad"} claro={true}></ProductLanding>
+        <ProductLanding bgImage={fondofundicion} title={"Fundición"} subtitle={"La mejor calidad"} claro={true}></ProductLanding>
+        <ProductLanding bgImage={fondoplastico} title={"Plásticos de ingeniería"} subtitle={"La mejor calidad"} claro={true}></ProductLanding>
+        <ProductLanding bgImage={fondoplastico} title={"Aceros"} subtitle={"Somos fabricantes"}></ProductLanding>
       </div>
-    </Router>
     ); 
   } 
 } 
